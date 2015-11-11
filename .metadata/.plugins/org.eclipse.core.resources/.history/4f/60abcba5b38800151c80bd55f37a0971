@@ -1,0 +1,7 @@
+package edu.elon.math;
+
+public interface ControllerInterface {
+
+	double evaluate();
+
+}

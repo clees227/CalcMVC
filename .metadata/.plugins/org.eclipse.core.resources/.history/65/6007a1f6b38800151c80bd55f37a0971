@@ -1,0 +1,50 @@
+package edu.elon.math;
+
+public class CalcModel implements ModelInterface {
+	double firstNum;
+	double secondNum;
+	String op;
+	
+
+	@Override
+	public void setFirstNum(String num) {
+		double dNum = Double.parseDouble(num);
+		firstNum = dNum;
+		
+	}
+
+	@Override
+	public void setOp(String op) {
+		this.op = op;
+	}
+
+	@Override
+	public void setSecondNum(String num) {
+		double dNum = Double.parseDouble(num);
+		secondNum = dNum;
+		
+	}
+
+	@Override
+	public double evaluate() {
+		double num = 0.0;
+		switch(op){
+		case "+":
+			num = firstNum+secondNum;
+			break;
+		case "-":
+			num = firstNum-secondNum;
+			break;
+		case "/":
+			num = firstNum/secondNum;
+			break;
+		case "*":
+			num = firstNum*secondNum;
+			break;
+		default:
+			return 0;
+		}
+		return num;
+	}
+
+}

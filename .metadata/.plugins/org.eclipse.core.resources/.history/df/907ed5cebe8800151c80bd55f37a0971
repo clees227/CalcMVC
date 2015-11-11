@@ -1,0 +1,37 @@
+package edu.elon.math;
+
+public class Controller implements ControllerInterface {
+	private ModelInterface model;
+	private CalcGui gui;
+	public Controller(ModelInterface m){
+		model =m;
+		gui = new CalcGui(this, model);
+		gui.createCalc();
+		gui.disableTextBox();
+	}
+	public void setFirstNum(String num){
+		model.setFirstNum(num);
+	}
+	public void setOp(String op){
+		model.setOp(op);
+	}
+	public void setSecondNum(String num){
+		model.setSecondNum(num);
+	}
+	@Override
+	public void evaluate() {
+		model.evaluate();
+	}
+	@Override
+	public void clearText() {
+		model.clearText();	
+	}
+	@Override
+	public void appendText(String num) {
+		model.appendText(num);
+	}
+	@Override
+	public String getText() {
+		return model.getText();
+	}
+}

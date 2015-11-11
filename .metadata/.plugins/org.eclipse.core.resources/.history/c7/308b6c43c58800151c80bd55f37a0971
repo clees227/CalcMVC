@@ -1,0 +1,41 @@
+package edu.elon.math;
+
+import javax.swing.JOptionPane;
+
+public class Controller implements ControllerInterface {
+	private ModelInterface model;
+	private CalcGui gui;
+	public Controller(ModelInterface m){
+		model =m;
+		gui = new CalcGui(this, model);
+		gui.createCalc();
+		gui.disableTextBox();
+		model.registerObserver(gui);
+	}
+	public void setFirstNum(String num){
+		model.setFirstNum(num);
+	}
+	public void setOp(String op){
+		model.setOp(op);
+	}
+	public void setSecondNum(String num){
+		model.setSecondNum(num);
+	}
+	@Override
+	public void evaluate() {
+		model.evaluate();
+	}
+	@Override
+	public void appendText(String num) {
+		if((num.equals(".") && model.getText().indexOf(".") == -1) || !num.equals(".")){
+			model.appendText(num);
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Don't do that");
+		}
+	}
+	@Override
+	public String getText() {
+		return model.getText();
+	}
+}

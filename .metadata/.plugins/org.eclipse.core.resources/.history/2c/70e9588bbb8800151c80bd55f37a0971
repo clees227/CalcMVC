@@ -1,0 +1,74 @@
+package edu.elon.math;
+
+public class CalcModel implements ModelInterface, Subject {
+	double firstNum;
+	double secondNum;
+	String op;
+	String text;
+	
+	public CalcModel(){
+		text = "";
+		firstNum = 0.0;
+		secondNum = 0.0;
+	}
+
+	@Override
+	public void setFirstNum(String num) {
+		double dNum = Double.parseDouble(num);
+		firstNum = dNum;
+		
+	}
+
+	@Override
+	public void setOp(String op) {
+		this.op = op;
+	}
+
+	@Override
+	public void setSecondNum(String num) {
+		double dNum = Double.parseDouble(num);
+		secondNum = dNum;
+		
+	}
+
+	@Override
+	public void evaluate() {
+		double num = 0.0;
+		switch(op){
+		case "+":
+			num = firstNum+secondNum;
+			break;
+		case "-":
+			num = firstNum-secondNum;
+			break;
+		case "/":
+			num = firstNum/secondNum;
+			break;
+		case "*":
+			num = firstNum*secondNum;
+			break;
+		default:
+			num = 0;
+		}
+		firstNum = num;
+		text = firstNum+"";
+	}
+
+	@Override
+	public void clearText() {
+		text = "";	
+	}
+
+	@Override
+	public String getText() {
+		return text;
+	}
+
+	@Override
+	public void appendText(String num) {
+		text = text+num;
+	}
+	
+	
+
+}

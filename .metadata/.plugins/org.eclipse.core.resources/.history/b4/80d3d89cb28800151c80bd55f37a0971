@@ -1,0 +1,7 @@
+package edu.elon.math;
+
+import javax.swing.JFrame;
+
+public class CalcGui extends JFrame {
+
+}

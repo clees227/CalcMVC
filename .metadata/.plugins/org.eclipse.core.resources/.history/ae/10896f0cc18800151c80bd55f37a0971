@@ -1,0 +1,13 @@
+package edu.elon.math;
+
+public interface ControllerInterface {
+
+	void setOp(String op);
+	void setFirstNum(String num);
+	void setSecondNum(String num);
+	void evaluate();
+	void clearText();
+	void appendText(String num);
+	String getText();
+
+}

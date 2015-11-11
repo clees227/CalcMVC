@@ -1,0 +1,10 @@
+package edu.elon.math;
+
+public interface ControllerInterface {
+
+	void setOp(String op);
+	void setFirstNum(String num);
+	void setSecondNum(String num);
+	double evaluate();
+
+}

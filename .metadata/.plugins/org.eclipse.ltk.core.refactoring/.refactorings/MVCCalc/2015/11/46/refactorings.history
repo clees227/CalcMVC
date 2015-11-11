@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;MVCCalc&apos;&#x0D;&#x0A;- Original project: &apos;MVCCalc&apos;&#x0D;&#x0A;- Original element: &apos;edu.elon.math.Subject.java&apos;" description="Delete element" element1="/src&lt;edu.elon.math{Subject.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1447279122849" subPackages="false" version="1.0"/>
+</session>

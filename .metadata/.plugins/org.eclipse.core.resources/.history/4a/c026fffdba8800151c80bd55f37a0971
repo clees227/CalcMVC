@@ -1,0 +1,19 @@
+package edu.elon.math;
+
+public interface ModelInterface {
+
+	void setFirstNum(String num);
+
+	void setOp(String op);
+
+	void setSecondNum(String num);
+
+	double evaluate();
+
+	void clearText();
+	
+	String getText();
+
+	void appendText(String num);
+
+}

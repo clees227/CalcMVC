@@ -1,0 +1,24 @@
+package edu.elon.math;
+
+import java.util.ArrayList;
+
+public interface Subject {
+	/**
+	   * Notifies all of the observers that are listening to the function.
+	   */
+	  public void notifyObservers();
+
+	  /**
+	   * Adds the observer to this listeners of this function
+	   * 
+	   * @param o observer to add
+	   */
+	  public void registerObserver(Observer o);
+
+	  /**
+	   * Removes the observer from listening to this function
+	   * 
+	   * @param o observer to remove
+	   */
+	  public void removeObserver(Observer o);
+}

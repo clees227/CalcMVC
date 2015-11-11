@@ -1,0 +1,49 @@
+package edu.elon.math;
+
+import javax.swing.JOptionPane;
+
+public class Controller implements ControllerInterface {
+	private ModelInterface model;
+	private CalcGui gui;
+	private boolean canAddDecimals;
+	public Controller(ModelInterface m){
+		model =m;
+		gui = new CalcGui(this, model);
+		gui.createCalc();
+		gui.disableTextBox();
+		model.registerObserver(gui);
+		canAddDecimals = true;
+	}
+	public void setFirstNum(String num){
+		model.setFirstNum(num);
+		canAddDecimals = false;
+	}
+	public void setOp(String op){
+		model.setOp(op);
+	}
+	public void setSecondNum(String num){
+		model.setSecondNum(num);
+	}
+	@Override
+	public void evaluate() {
+		model.evaluate();
+	}
+	@Override
+	public void clearText() {
+		model.clearText();	
+	}
+	@Override
+	public void appendText(String num) {
+		if((num.equals(".") && canAddDecimals) || !num.equals(".")){
+			model.appendText(num);
+			canAddDecimals = false;
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Don't do that");
+		}
+	}
+	@Override
+	public String getText() {
+		return model.getText();
+	}
+}

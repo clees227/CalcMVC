@@ -1,0 +1,19 @@
+package edu.elon.math;
+
+public class Controller implements ControllerInterface {
+	private ModelInterface model;
+	private CalcGui gui;
+	public Controller(CalcModel m){
+		model =m;
+		gui = new CalcGui(this, model);
+	}
+	public void setFirstNum(String num){
+		model.setFirstNum(num);
+	}
+	public void setOp(String op){
+		model.setOp(op);
+	}
+	public void setSecondNum(String num){
+		model.setSecondNum(num);
+	}
+}

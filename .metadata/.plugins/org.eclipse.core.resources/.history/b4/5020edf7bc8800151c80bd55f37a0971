@@ -1,0 +1,101 @@
+package edu.elon.math;
+
+import java.util.ArrayList;
+
+public class CalcModel implements ModelInterface, Subject{
+	double firstNum;
+	double secondNum;
+	String op;
+	String text;
+	ArrayList<Observer> observers;
+	
+	public CalcModel(){
+		text = "";
+		firstNum = 0.0;
+		secondNum = 0.0;
+		observers = new ArrayList<Observer>();
+	}
+
+	@Override
+	public void setFirstNum(String num) {
+		double dNum = Double.parseDouble(num);
+		firstNum = dNum;
+		
+	}
+
+	@Override
+	public void setOp(String op) {
+		this.op = op;
+	}
+
+	@Override
+	public void setSecondNum(String num) {
+		double dNum = Double.parseDouble(num);
+		secondNum = dNum;
+		
+	}
+
+	@Override
+	public void evaluate() {
+		double num = 0.0;
+		switch(op){
+		case "+":
+			num = firstNum+secondNum;
+			break;
+		case "-":
+			num = firstNum-secondNum;
+			break;
+		case "/":
+			num = firstNum/secondNum;
+			break;
+		case "*":
+			num = firstNum*secondNum;
+			break;
+		default:
+			num = 0;
+		}
+		firstNum = num;
+		text = firstNum+"";
+	}
+
+	@Override
+	public void clearText() {
+		text = "";	
+	}
+
+	@Override
+	public String getText() {
+		return text;
+	}
+
+	@Override
+	public void appendText(String num) {
+		text = text+num;
+	}
+	/**
+	   * Notifies all of the observers that are listening to the function.
+	   */
+	  public void notifyObservers(){
+		  for(Observer s : observers){
+				s.update();
+			}
+	  }
+
+	  /**
+	   * Adds the observer to this listeners of this function
+	   * 
+	   * @param o observer to add
+	   */
+	  public void registerObserver(Observer o){
+		  observers.add(o);	
+	  }
+
+	  /**
+	   * Removes the observer from listening to this function
+	   * 
+	   * @param o observer to remove
+	   */
+	  public void removeObserver(Observer o){
+		  observers.remove(o);
+	  }
+}
