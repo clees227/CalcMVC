@@ -1,7 +1,7 @@
 package edu.elon.math;
 
 /**
- * Observer Classs
+ * Observer Class
  *
  * @author clees
  * @version 1.0

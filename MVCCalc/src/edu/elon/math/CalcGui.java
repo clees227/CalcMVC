@@ -35,12 +35,11 @@ public class CalcGui extends JFrame implements Observer {
   private JTextField answer;
   private CalcGui app = this;
   private ControllerInterface controller;
-  private ModelInterface model;
   private String numbers;
 
   private String[] ops;
 
-  public CalcGui(ControllerInterface c, ModelInterface model) {
+  public CalcGui(ControllerInterface c) {
     controller = c;
   }
 

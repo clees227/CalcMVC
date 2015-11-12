@@ -1,12 +1,14 @@
 package edu.elon.math;
 
+import javax.swing.JOptionPane;
+
 public class Controller implements ControllerInterface {
   private CalcGui gui;
   private ModelInterface model;
 
   public Controller(ModelInterface m) {
     model = m;
-    gui = new CalcGui(this, model);
+    gui = new CalcGui(this);
     gui.createCalc();
     gui.disableTextBox();
     model.registerObserver(gui);
@@ -14,7 +16,13 @@ public class Controller implements ControllerInterface {
 
   @Override
   public void appendText(String num) {
-    model.appendText(num);
+    if ((num.equals(".") && model.getText().indexOf(".") == -1)
+            || !num.equals(".")) {
+      model.appendText(num);
+    } else {
+      JOptionPane.showMessageDialog(gui, "You can't add another decimal",
+              "Decimal Error", JOptionPane.ERROR_MESSAGE);
+    }
   }
 
   @Override
@@ -29,7 +37,7 @@ public class Controller implements ControllerInterface {
 
   @Override
   public void setFirstNum(String num) {
-    model.setFirstNum(num);
+    model.setFirstNum(Double.parseDouble(num));
   }
 
   @Override
@@ -39,6 +47,6 @@ public class Controller implements ControllerInterface {
 
   @Override
   public void setSecondNum(String num) {
-    model.setSecondNum(num);
+    model.setSecondNum(Double.parseDouble(num));
   }
 }

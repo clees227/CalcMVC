@@ -2,8 +2,6 @@ package edu.elon.math;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class CalcModel implements ModelInterface {
   double firstNum;
   ArrayList<Observer> observers;
@@ -20,11 +18,7 @@ public class CalcModel implements ModelInterface {
 
   @Override
   public void appendText(String num) {
-    if ((num.equals(".") && text.indexOf(".") == -1) || !num.equals(".")) {
-      text = text + num;
-    } else {
-      JOptionPane.showMessageDialog(null, "You can't add another decimal");
-    }
+    text = text + num;
     notifyObservers();
   }
 
@@ -57,9 +51,6 @@ public class CalcModel implements ModelInterface {
     return text;
   }
 
-  /**
-   * Notifies all of the observers that are listening to the function.
-   */
   @Override
   public void notifyObservers() {
     for (Observer s : observers) {
@@ -67,30 +58,19 @@ public class CalcModel implements ModelInterface {
     }
   }
 
-  /**
-   * Adds the observer to this listeners of this function
-   * 
-   * @param o observer to add
-   */
   @Override
   public void registerObserver(Observer o) {
     observers.add(o);
   }
 
-  /**
-   * Removes the observer from listening to this function
-   * 
-   * @param o observer to remove
-   */
   @Override
   public void removeObserver(Observer o) {
     observers.remove(o);
   }
 
   @Override
-  public void setFirstNum(String num) {
-    double dNum = Double.parseDouble(num);
-    firstNum = dNum;
+  public void setFirstNum(double num) {
+    firstNum = num;
   }
 
   @Override
@@ -101,8 +81,7 @@ public class CalcModel implements ModelInterface {
   }
 
   @Override
-  public void setSecondNum(String num) {
-    double dNum = Double.parseDouble(num);
-    secondNum = dNum;
+  public void setSecondNum(double num) {
+    secondNum = num;
   }
 }
