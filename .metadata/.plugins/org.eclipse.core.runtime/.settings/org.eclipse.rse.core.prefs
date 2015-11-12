@@ -1,4 +1,4 @@
-activeuserprofiles=ColinsPC;Team
+activeuserprofiles=CARPMAC-13;ColinsPC;Team
 eclipse.preferences.version=1
 org.eclipse.rse.systemtype.local.systemType.defaultUserId=clees
-useridperkey=ColinsPC.Local\=clees;
+useridperkey=ColinsPC.Local\=clees;CARPMAC-13.Local\=clees;

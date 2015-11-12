@@ -29,12 +29,6 @@ public class CalcModel implements ModelInterface {
   }
 
   @Override
-  public void clearText() {
-    text = "";
-    notifyObservers();
-  }
-
-  @Override
   public void evaluate() {
     double num = 0.0;
     switch (op) {

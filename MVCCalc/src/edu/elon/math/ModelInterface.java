@@ -1,38 +1,36 @@
 package edu.elon.math;
 
-public interface ModelInterface{
+public interface ModelInterface {
 
-	void setFirstNum(String num);
+  /**
+   * Notifies all of the observers that are listening to the function.
+   */
+  public void notifyObservers();
 
-	void setOp(String op);
+  /**
+   * Adds the observer to this listeners of this function
+   * 
+   * @param o observer to add
+   */
+  public void registerObserver(Observer o);
 
-	void setSecondNum(String num);
+  /**
+   * Removes the observer from listening to this function
+   * 
+   * @param o observer to remove
+   */
+  public void removeObserver(Observer o);
 
-	void evaluate();
+  void appendText(String num);
 
-	void clearText();
-	
-	String getText();
+  void evaluate();
 
-	void appendText(String num);
-	
-	/**
-	   * Notifies all of the observers that are listening to the function.
-	   */
-	  public void notifyObservers();
+  String getText();
 
-	  /**
-	   * Adds the observer to this listeners of this function
-	   * 
-	   * @param o observer to add
-	   */
-	  public void registerObserver(Observer o);
+  void setFirstNum(String num);
 
-	  /**
-	   * Removes the observer from listening to this function
-	   * 
-	   * @param o observer to remove
-	   */
-	  public void removeObserver(Observer o);
+  void setOp(String op);
+
+  void setSecondNum(String num);
 
 }
